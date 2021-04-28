@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 import { Avatar } from "@material-ui/core";
-import db from "./firebase"
+import db from "./firebase";
 import "./SidebarChat.css";
 
-function SidebarChat({ addNewChat, name }) {
+function SidebarChat({ id, addNewChat, name }) {
   const [seed, setSeed] = useState("");
 
   useEffect(() => {
@@ -15,19 +16,21 @@ function SidebarChat({ addNewChat, name }) {
 
     if (roomName) {
       db.collection("rooms").add({
-        name: roomName
-      })
+        name: roomName,
+      });
     }
   };
 
   return !addNewChat ? (
-    <div className="sidebarChat">
-      <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
-      <div className="sidebarChat__info">
-        <h2>{name}</h2>
-        <p>Last message...</p>
+    <Link to={`/room/${id}`}>
+      <div className="sidebarChat">
+        <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
+        <div className="sidebarChat__info">
+          <h2>{name}</h2>
+          <p>Last message...</p>
+        </div>
       </div>
-    </div>
+    </Link>
   ) : (
     <div onClick={createChat} className="sidebarChat">
       <h2>Add new chat</h2>
