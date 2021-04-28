@@ -5,8 +5,8 @@ import ChatIcon from "@material-ui/icons/Chat";
 import MoreVertIcon from "@material-ui/icons/MoreVert";
 import SearchOutlined from "@material-ui/icons/SearchOutlined";
 import SidebarChat from "./SidebarChat";
-import db from "./firebase";
-import "./Sidebar.css";
+import db from "../db/firebase";
+import "../styles/Sidebar.css";
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
 
