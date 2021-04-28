@@ -87,11 +87,15 @@
   border: none;
 }
 
-.chat__footer > form > button {
-    display: none;
+.chat__footer > form > input:focus {
+  outline: none;
 }
 
-.chat__footer > .MuiSvgIcon-root{
-    padding: 10px;
-    color: gray;
+.chat__footer > form > button {
+  display: none;
+}
+
+.chat__footer > .MuiSvgIcon-root {
+  padding: 10px;
+  color: gray;
 }

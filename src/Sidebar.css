@@ -30,6 +30,12 @@
   margin-left: 10px;
 }
 
+.sidebar__searchContainer > input:focus {
+  border: none;
+  margin-left: 10px;
+  outline: none;
+}
+
 .sidebar__header {
   display: flex;
   justify-content: space-between;

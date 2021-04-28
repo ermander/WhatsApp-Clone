@@ -7,16 +7,17 @@ import MicIcon from "@material-ui/icons/Mic";
 
 function Chat() {
   const [seed, setSeed] = useState("");
-  const [input, setInput] = useState("")
+  const [input, setInput] = useState("");
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
   }, []);
 
   const sendMessage = (e) => {
-    e.preventDefault()
-    console.log("You typed >> ", input)
-  }
+    e.preventDefault();
+    console.log("You typed >> ", input);
+    setInput("")
+  };
 
   return (
     <div className="chat">
@@ -40,21 +41,25 @@ function Chat() {
       </div>
       <div className="chat__body">
         <p className={`chat__message ${true && "chat__reciever"}`}>
-            <span className="chat__name">Emanuele Bertuol</span>
-            asdfasdf
-            <span className="chat__timeStamp">3:00pm</span>
-        </p>        
+          <span className="chat__name">Emanuele Bertuol</span>
+          asdfasdf
+          <span className="chat__timeStamp">3:00pm</span>
+        </p>
       </div>
       <div className="chat__footer">
-          <InsertEmoticonIcon />
-          <form>
-              <input value={input} onChange={(e) => setInput(e.target.value)} type="text"/>
-              <button onClick={sendMessage} >Send a message</button>
-          </form>
-          <MicIcon />
+        <InsertEmoticonIcon />
+        <form>
+          <input
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            type="text"
+          />
+          <button onClick={sendMessage}>Send a message</button>
+        </form>
+        <MicIcon />
       </div>
     </div>
   );
 }
 
-export default Chat
+export default Chat;
